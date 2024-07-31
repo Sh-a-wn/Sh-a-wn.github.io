@@ -5,25 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Correct</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f0f4f8, #d0e3f7);
+      background: linear-gradient(135deg, #ffffff, #f0f4f8);
       color: #333;
       overflow-x: hidden;
     }
     header {
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #42a5f5, #478ed1);
       color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
-    header img {
-      max-width: 200px;
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/background_pattern.png') repeat;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    header img.logo {
+      max-width: 150px;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
@@ -31,7 +45,7 @@
       position: relative;
       animation: float 4s ease-in-out infinite;
     }
-    header img:hover {
+    header img.logo:hover {
       transform: scale(1.1);
     }
     .particles {
@@ -44,62 +58,85 @@
       z-index: 0;
     }
     main {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
-      background-color: #fefefe;
+      background-color: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+      position: relative;
     }
     section {
       padding: 60px 20px;
       margin: 20px 0;
       border-radius: 12px;
-      background: #fff;
+      background: linear-gradient(135deg, #f9f9f9, #e9e9e9);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/diagonal_pattern.png') repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    section:nth-child(even) {
+      background: linear-gradient(135deg, #e9e9e9, #f9f9f9);
     }
     section:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     h1, h2 {
-      color: #ff7e5f;
+      color: #42a5f5;
       margin-bottom: 20px;
-      font-weight: 600;
-      opacity: 0;
-      transform: translateX(-100%);
-      animation: slide-in 1s forwards;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
     }
     h1 {
-      font-size: 2.8em;
+      font-size: 3em;
     }
     h2 {
-      font-size: 2.2em;
+      font-size: 2.5em;
     }
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       font-size: 1.2em;
+      position: relative;
+      z-index: 1;
     }
     ul li {
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      background: linear-gradient(135deg, #42a5f5, #478ed1);
       color: white;
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    ul li img {
+      margin-right: 10px;
     }
     ul li:hover {
-      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      background: linear-gradient(135deg, #478ed1, #42a5f5);
       transform: scale(1.05);
     }
     footer {
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       background: #333;
       color: #fff;
       font-size: 0.9em;
@@ -107,32 +144,39 @@
       bottom: 0;
       width: 100%;
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 3;
     }
     p {
       line-height: 1.8;
       font-size: 1.2em;
       margin-bottom: 20px;
       text-align: justify;
+      position: relative;
+      z-index: 1;
     }
     .button {
       display: inline-block;
       padding: 12px 25px;
       color: white;
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      background: linear-gradient(135deg, #42a5f5, #478ed1);
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.3s;
+      z-index: 1;
+      position: relative;
     }
     .button:hover {
-      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      background: linear-gradient(135deg, #478ed1, #42a5f5);
       transform: scale(1.05);
     }
     .icons {
       display: flex;
       justify-content: space-around;
       margin-top: 20px;
+      position: relative;
+      z-index: 1;
     }
     .icons img {
       max-width: 100px;
@@ -181,7 +225,7 @@
 </head>
 <body>
   <header>
-    <img src="img/campus_connect_logo.png" alt="Course Correct logo" class="float">
+    <img src="img/campus_connect_logo.png" alt="Course Correct logo" class="logo float">
     <div class="particles" id="particles-js"></div>
   </header>
   
@@ -195,16 +239,11 @@
     <section id="features">
       <h2>Features</h2>
       <ul>
-        <li>Search for tutors based on availability and subject expertise.</li>
-        <li>Book sessions directly through the app with a user-friendly interface.</li>
-        <li>Receive reminders for upcoming sessions with tutors.</li>
-        <li>Manage bookings and view history easily.</li>
+        <li><img src="img/feature_icon1.png" alt="Icon"> Search for tutors based on availability and subject expertise.</li>
+        <li><img src="img/feature_icon2.png" alt="Icon"> Book sessions directly through the app with a user-friendly interface.</li>
+        <li><img src="img/feature_icon3.png" alt="Icon"> Receive reminders for upcoming sessions with tutors.</li>
+        <li><img src="img/feature_icon4.png" alt="Icon"> Manage bookings and view history easily.</li>
       </ul>
-      <div class="icons">
-        <img src="img/icon1.png" alt="Icon 1">
-        <img src="img/icon2.png" alt="Icon 2">
-        <img src="img/icon3.png" alt="Icon 3">
-      </div>
     </section>
 
     <section id="tutors">
@@ -220,6 +259,11 @@
     <section id="about">
       <h2>About Us</h2>
       <p>We are dedicated to making education more accessible by bridging the gap between students and experienced tutors. Our app is designed to simplify the process of finding and booking tutoring sessions.</p>
+      <div class="icons">
+        <img src="img/tutor_icon.png" alt="Tutor Icon">
+        <img src="img/student_icon.png" alt="Student Icon">
+        <img src="img/about_icon.png" alt="About Icon">
+      </div>
     </section>
   </main>
   
