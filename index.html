@@ -9,109 +9,64 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      background: linear-gradient(135deg, #f5a623, #f75c03);
       color: #333;
       overflow-x: hidden;
-      position: relative;
-    }
-
-    /* Animated Background */
-    ::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, rgba(255, 165, 0, 0.2), rgba(255, 105, 180, 0.2));
-      background-size: 200% 200%;
-      animation: gradientShift 10s ease infinite;
-      z-index: -1;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
     }
 
     header {
       text-align: center;
-      padding: 100px 20px;
-      background: radial-gradient(circle, #ff4081, #ff6f00);
-      color: white;
+      padding: 60px 20px;
+      background: #fff;
       position: relative;
-      overflow: hidden;
       z-index: 1;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.2);
-      border-radius: 50%;
-      z-index: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    header:hover::before {
-      opacity: 0;
+      border-bottom: 5px solid #ff4081;
+      overflow: hidden;
     }
 
     header img {
-      max-width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      max-width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
       transition: transform 0.4s ease, filter 0.4s ease;
-      position: relative;
-      z-index: 1;
     }
 
     header img:hover {
-      transform: scale(1.15);
-      filter: brightness(1.3);
+      transform: scale(1.1);
+      filter: brightness(1.2);
     }
 
     main {
       padding: 40px 20px;
       max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
     section {
-      background: white;
-      padding: 50px;
-      margin-bottom: 60px;
+      background: #fff;
+      padding: 60px;
+      margin-bottom: 40px;
       border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
-      z-index: 1;
-      transition: transform 0.5s ease;
     }
 
-    section:hover {
-      transform: translateY(-10px) scale(1.02);
+    section:nth-child(even) {
+      background: #f9f9f9;
     }
 
     section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
-      transform: rotate(-10deg);
-      z-index: -1;
-      transition: opacity 0.3s ease-in-out;
+      top: -30%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+      border-radius: 50%;
+      z-index: 0;
+      transition: opacity 0.3s ease;
     }
 
     section:hover::before {
@@ -119,65 +74,43 @@
     }
 
     h1, h2 {
+      color: #ff4081;
       margin: 0;
       font-weight: bold;
-      text-transform: uppercase;
       position: relative;
       z-index: 1;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
-      font-size: 4em;
-      color: #ff6f00;
+      font-size: 3.5em;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      animation: textGlow 1.5s infinite alternate;
-    }
-
-    @keyframes textGlow {
-      from {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      }
-      to {
-        text-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
-      }
+      animation: bounceIn 1s ease-out;
     }
 
     h2 {
       font-size: 2.5em;
-      color: #ff4081;
       margin-bottom: 20px;
-      position: relative;
       transition: color 0.3s ease;
     }
 
     h2:hover {
-      color: #ff6f00;
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: #f75c03;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     }
 
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 70%;
-      height: 6px;
-      background: #ff4081;
-      border-radius: 5px;
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-      z-index: -1;
-    }
-
-    h2:hover::after {
-      transform: scaleX(1);
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     p {
       line-height: 1.7;
       font-size: 1.2em;
       color: #555;
+      position: relative;
+      z-index: 1;
     }
 
     ul {
@@ -199,8 +132,8 @@
     }
 
     ul li:hover {
-      background: #d81b60;
-      transform: translateY(-5px);
+      background: #f75c03;
+      transform: scale(1.03);
     }
 
     ul li::before {
@@ -221,10 +154,11 @@
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 20px;
       background: #333;
       color: #fff;
       font-size: 1em;
+      border-top: 5px solid #ff4081;
       position: relative;
       z-index: 1;
     }
@@ -235,7 +169,7 @@
       color: white;
       background: #ff4081;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: bold;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       transition: background 0.3s ease, transform 0.3s ease;
@@ -250,7 +184,7 @@
       left: 50%;
       width: 300%;
       height: 300%;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       transition: width 0.4s ease, height 0.4s ease;
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(0);
@@ -263,7 +197,7 @@
     }
 
     .button:hover {
-      background: #d81b60;
+      background: #f75c03;
       transform: scale(1.1);
     }
   </style>
