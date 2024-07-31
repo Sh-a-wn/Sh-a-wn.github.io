@@ -9,26 +9,24 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+      background: #f4f4f4;
       color: #333;
       overflow-x: hidden;
+      position: relative;
     }
     header {
-      position: relative;
       text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #ff6f61, #d43f8d);
+      padding: 40px;
+      background: #00796b;
       color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
       overflow: hidden;
+      z-index: 1;
     }
     header img {
-      max-width: 200px;
+      max-width: 150px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-      z-index: 1;
-      position: relative;
+      transition: transform 0.3s ease;
     }
     header img:hover {
       transform: scale(1.1);
@@ -49,91 +47,64 @@
     }
     section {
       background: white;
-      padding: 30px;
+      padding: 40px;
       margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(255, 111, 97, 0.1), rgba(212, 63, 141, 0.1));
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    h1, h2 {
+      color: #00796b;
+      font-weight: 600;
+      margin: 0;
+      padding-bottom: 10px;
+      position: relative;
       z-index: 1;
-      opacity: 0.2;
-      transition: opacity 0.3s;
     }
-    section:hover::before {
-      opacity: 0.4;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
     }
     section h2 {
-      color: #ff6f61;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 2em;
-      position: relative;
+      background: #e0f2f1;
       padding: 10px 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      z-index: 2;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       animation: fadeInUp 1s ease-out forwards;
-    }
-    section h2::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 5px;
-      height: 40px;
-      background: #ff6f61;
-      border-radius: 5px;
-      transform: translateY(-50%);
-      z-index: -1;
     }
     section ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: 1.1em;
-      position: relative;
     }
     section ul li {
-      background: #ff6f61;
+      background: #00796b;
       color: white;
-      padding: 10px;
+      padding: 15px;
       margin-bottom: 10px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.3s;
-      position: relative;
-    }
-    section ul li::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      width: 8px;
-      height: 8px;
-      background: #d43f8d;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     section ul li:hover {
-      background: #d43f8d;
+      background: #004d40;
       transform: scale(1.02);
     }
     footer {
       text-align: center;
       padding: 20px;
-      background: #333;
-      color: #fff;
+      background: #00796b;
+      color: white;
       font-size: 0.9em;
       position: fixed;
       bottom: 0;
@@ -146,16 +117,16 @@
     }
     .button {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 24px;
       color: white;
-      background: #ff6f61;
+      background: #00796b;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     .button:hover {
-      background: #d43f8d;
+      background: #004d40;
       transform: scale(1.05);
     }
 
@@ -172,7 +143,7 @@
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
   </style>
@@ -186,7 +157,7 @@
   <main>
     <section id="home">
       <h1>Welcome to Course Correct</h1>
-      <p>Course Correct aims to connect students with tutors for personalized one-on-one sessions. Find the perfect tutor for your learning needs and book a session with ease.</p>
+      <p>Course Correct connects students with tutors for personalized one-on-one sessions. Find the perfect tutor for your learning needs and book a session with ease.</p>
       <a href="#features" class="button">Learn More</a>
     </section>
 
@@ -225,14 +196,14 @@
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 70,
           "density": {
             "enable": true,
             "value_area": 800
           }
         },
         "color": {
-          "value": "#ffffff"
+          "value": "#00796b"
         },
         "shape": {
           "type": "circle",
@@ -245,7 +216,7 @@
           }
         },
         "opacity": {
-          "value": 0.5,
+          "value": 0.4,
           "random": false,
           "anim": {
             "enable": false,
@@ -267,13 +238,13 @@
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#ffffff",
+          "color": "#00796b",
           "opacity": 0.4,
           "width": 1
         },
         "move": {
           "enable": true,
-          "speed": 6,
+          "speed": 5,
           "direction": "none",
           "random": false,
           "straight": false,
