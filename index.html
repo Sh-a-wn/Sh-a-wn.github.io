@@ -245,7 +245,7 @@
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    function initializeParticles(elementId) {
+    function initializeParticles(elementId, color) {
       particlesJS(elementId, {
         "particles": {
           "number": {
@@ -256,7 +256,7 @@
             }
           },
           "color": {
-            "value": "#ffffff"
+            "value": color
           },
           "shape": {
             "type": "circle",
@@ -291,7 +291,7 @@
           "line_linked": {
             "enable": true,
             "distance": 150,
-            "color": "#ffffff",
+            "color": color,
             "opacity": 0.4,
             "width": 1
           },
@@ -353,12 +353,13 @@
       });
     }
 
-    initializeParticles("particles-header");
-    initializeParticles("particles-home");
-    initializeParticles("particles-features");
-    initializeParticles("particles-tutors");
-    initializeParticles("particles-students");
-    initializeParticles("particles-about");
+    // Initialize particles with different colors for each section
+    initializeParticles("particles-header", "#ffffff");
+    initializeParticles("particles-home", "#ff6f61");
+    initializeParticles("particles-features", "#d43f8d");
+    initializeParticles("particles-tutors", "#ff6f61");
+    initializeParticles("particles-students", "#d43f8d");
+    initializeParticles("particles-about", "#ff6f61");
   </script>
 </body>
 </html>
