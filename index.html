@@ -6,18 +6,27 @@
   <title>Course Correct</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+      color: #333;
     }
     header {
       text-align: center;
       padding: 20px;
-      background-color: #333;
+      background: linear-gradient(135deg, #ff6f61, #d43f8d);
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     header img {
-      max-width: 150px;
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    header img:hover {
+      transform: scale(1.1);
     }
     main {
       padding: 20px;
@@ -25,30 +34,75 @@
       margin: 0 auto;
     }
     section {
-      background-color: #fff;
-      padding: 20px;
+      background: white;
+      padding: 30px;
       margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     h1, h2 {
-      color: #333;
+      color: #ff6f61;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    h2 {
+      font-size: 2em;
     }
     ul {
-      list-style: disc;
-      padding-left: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.1em;
+    }
+    ul li {
+      background: #ff6f61;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.3s;
+    }
+    ul li:hover {
+      background: #d43f8d;
+      transform: scale(1.02);
     }
     footer {
       text-align: center;
-      padding: 10px;
-      background-color: #333;
+      padding: 15px;
+      background: #333;
       color: #fff;
+      font-size: 0.9em;
       position: fixed;
       bottom: 0;
       width: 100%;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
     }
     p {
-      line-height: 1.6;
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      color: white;
+      background: #ff6f61;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .button:hover {
+      background: #d43f8d;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -59,8 +113,9 @@
   
   <main>
     <section id="home">
-      <h1>Course Correct</h1>
+      <h1>Welcome to Course Correct</h1>
       <p>Course Correct aims to connect students with tutors for personalized one-on-one sessions. Find the perfect tutor for your learning needs and book a session with ease.</p>
+      <a href="#features" class="button">Learn More</a>
     </section>
 
     <section id="features">
