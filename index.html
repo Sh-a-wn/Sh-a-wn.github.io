@@ -9,24 +9,27 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
       color: #333;
       overflow-x: hidden;
       position: relative;
     }
     header {
       text-align: center;
-      padding: 40px;
-      background: #00796b;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff6f61, #d43f8d);
       color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
-      z-index: 1;
     }
     header img {
-      max-width: 150px;
+      max-width: 200px;
       border-radius: 50%;
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      z-index: 1;
+      position: relative;
     }
     header img:hover {
       transform: scale(1.1);
@@ -44,67 +47,81 @@
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
-    }
-    section {
-      background: white;
-      padding: 40px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    h1, h2 {
-      color: #00796b;
-      font-weight: 600;
-      margin: 0;
-      padding-bottom: 10px;
       position: relative;
       z-index: 1;
     }
-    h1 {
-      font-size: 2.5em;
+    section {
+      background: white;
+      padding: 30px;
       margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    h1, h2 {
+      margin: 0;
+      padding-bottom: 10px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+    h1 {
+      color: #ff6f61;
+      font-size: 2.5em;
     }
     h2 {
       font-size: 2em;
-      margin-bottom: 20px;
+      color: #ff6f61;
+      position: relative;
+      overflow: hidden;
     }
-    section h2 {
-      background: #e0f2f1;
-      padding: 10px 20px;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      animation: fadeInUp 1s ease-out forwards;
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 4px;
+      background: #d43f8d;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.4s ease;
     }
-    section ul {
+    h2:hover::before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      font-size: 1.1em;
     }
-    section ul li {
-      background: #00796b;
+    ul li {
+      background: #ff6f61;
       color: white;
-      padding: 15px;
+      padding: 10px;
       margin-bottom: 10px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: background 0.3s, transform 0.3s;
     }
-    section ul li:hover {
-      background: #004d40;
+    ul li:hover {
+      background: #d43f8d;
       transform: scale(1.02);
     }
     footer {
       text-align: center;
-      padding: 20px;
-      background: #00796b;
-      color: white;
+      padding: 15px;
+      background: #333;
+      color: #fff;
       font-size: 0.9em;
       position: fixed;
       bottom: 0;
@@ -117,23 +134,23 @@
     }
     .button {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 10px 20px;
       color: white;
-      background: #00796b;
+      background: #ff6f61;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: background 0.3s, transform 0.3s;
     }
     .button:hover {
-      background: #004d40;
+      background: #d43f8d;
       transform: scale(1.05);
     }
 
     @keyframes fadeInUp {
       0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       100% {
         opacity: 1;
@@ -143,8 +160,38 @@
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    section:nth-child(2) h2 {
+      animation-delay: 0.2s;
+    }
+
+    section:nth-child(3) h2 {
+      animation-delay: 0.4s;
+    }
+
+    section:nth-child(4) h2 {
+      animation-delay: 0.6s;
+    }
+
+    section:nth-child(5) h2 {
+      animation-delay: 0.8s;
     }
   </style>
 </head>
@@ -157,7 +204,7 @@
   <main>
     <section id="home">
       <h1>Welcome to Course Correct</h1>
-      <p>Course Correct connects students with tutors for personalized one-on-one sessions. Find the perfect tutor for your learning needs and book a session with ease.</p>
+      <p>Course Correct aims to connect students with tutors for personalized one-on-one sessions. Find the perfect tutor for your learning needs and book a session with ease.</p>
       <a href="#features" class="button">Learn More</a>
     </section>
 
@@ -196,14 +243,14 @@
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 70,
+          "value": 80,
           "density": {
             "enable": true,
             "value_area": 800
           }
         },
         "color": {
-          "value": "#00796b"
+          "value": "#ffffff"
         },
         "shape": {
           "type": "circle",
@@ -216,7 +263,7 @@
           }
         },
         "opacity": {
-          "value": 0.4,
+          "value": 0.5,
           "random": false,
           "anim": {
             "enable": false,
@@ -226,7 +273,7 @@
           }
         },
         "size": {
-          "value": 4,
+          "value": 3,
           "random": true,
           "anim": {
             "enable": false,
@@ -238,13 +285,13 @@
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#00796b",
+          "color": "#ffffff",
           "opacity": 0.4,
           "width": 1
         },
         "move": {
           "enable": true,
-          "speed": 5,
+          "speed": 6,
           "direction": "none",
           "random": false,
           "straight": false,
