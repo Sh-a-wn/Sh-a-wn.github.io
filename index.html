@@ -6,186 +6,104 @@
   <title>Course Correct</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ff9a8b, #f7d0ff);
+      background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
       color: #333;
-      overflow-x: hidden;
     }
-
     header {
       text-align: center;
-      padding: 40px;
-      background: #ff6f61;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff6f61, #d43f8d);
       color: white;
-      position: relative;
-      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     header img {
-      max-width: 180px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
     }
-
     header img:hover {
       transform: scale(1.1);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
     }
-
     main {
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
     section {
-      background: #ffffff;
+      background: white;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      position: relative;
-      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s, box-shadow 0.3s;
-      flex: 1 1 calc(50% - 40px);
-      max-width: calc(50% - 40px);
     }
-
     section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
-    section::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-      border-radius: 50%;
-      z-index: 0;
-      transition: transform 0.3s;
-    }
-
-    section:hover::before {
-      transform: scale(1.2);
-    }
-
     h1, h2 {
       color: #ff6f61;
-      margin: 0 0 15px;
+      margin-bottom: 10px;
       font-weight: 600;
-      position: relative;
-      z-index: 1;
     }
-
     h1 {
-      font-size: 3em;
-      animation: fadeIn 1s ease-out;
+      font-size: 2.5em;
     }
-
     h2 {
-      font-size: 2.2em;
-      animation: fadeIn 1.2s ease-out;
+      font-size: 2em;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    p {
-      line-height: 1.6;
-      font-size: 1.1em;
-      margin: 0;
-      position: relative;
-      z-index: 1;
-    }
-
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       font-size: 1.1em;
     }
-
     ul li {
-      background: #f7d0ff;
-      color: #333;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
-      font-weight: bold;
-    }
-
-    ul li:hover {
-      background: #ff9a8b;
+      background: #ff6f61;
       color: white;
-      transform: scale(1.05);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.3s;
     }
-
-    ul li::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s;
-      z-index: 1;
+    ul li:hover {
+      background: #d43f8d;
+      transform: scale(1.02);
     }
-
-    ul li:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       background: #333;
       color: #fff;
-      font-size: 1em;
+      font-size: 0.9em;
       position: fixed;
       bottom: 0;
       width: 100%;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
     }
-
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
     .button {
       display: inline-block;
-      padding: 12px 25px;
-      color: #fff;
+      padding: 10px 20px;
+      color: white;
       background: #ff6f61;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: bold;
       transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     .button:hover {
       background: #d43f8d;
       transform: scale(1.05);
     }
-
   </style>
 </head>
 <body>
@@ -200,32 +118,30 @@
       <a href="#features" class="button">Learn More</a>
     </section>
 
-    <div class="container">
-      <section id="features">
-        <h2>Features</h2>
-        <ul>
-          <li>Search for tutors based on availability and subject expertise.</li>
-          <li>Book sessions directly through the app with a user-friendly interface.</li>
-          <li>Receive reminders for upcoming sessions with tutors.</li>
-          <li>Manage bookings and view history easily.</li>
-        </ul>
-      </section>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>Search for tutors based on availability and subject expertise.</li>
+        <li>Book sessions directly through the app with a user-friendly interface.</li>
+        <li>Receive reminders for upcoming sessions with tutors.</li>
+        <li>Manage bookings and view history easily.</li>
+      </ul>
+    </section>
 
-      <section id="tutors">
-        <h2>Tutors</h2>
-        <p>The tutors on the app range from top-performing students in higher classes to young but experienced individuals eager to assist those who need help.</p>
-      </section>
+    <section id="tutors">
+      <h2>Tutors</h2>
+      <p>The tutors on the app range from top-performing students in higher classes to young but experienced individuals eager to assist those who need help.</p>
+    </section>
 
-      <section id="students">
-        <h2>Students</h2>
-        <p>Anyone can be a student on the app. Just log in as a student and select a topic from our vast options where you need assistance, and we'll get you the best tutor available to guide you.</p>
-      </section>
+    <section id="students">
+      <h2>Students</h2>
+      <p>Anyone can be a student on the app. Just log in as a student and select a topic from our vast options where you need assistance, and we'll get you the best tutor available to guide you.</p>
+    </section>
 
-      <section id="about">
-        <h2>About Us</h2>
-        <p>We are dedicated to making education more accessible by bridging the gap between students and experienced tutors. Our app is designed to simplify the process of finding and booking tutoring sessions.</p>
-      </section>
-    </div>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are dedicated to making education more accessible by bridging the gap between students and experienced tutors. Our app is designed to simplify the process of finding and booking tutoring sessions.</p>
+    </section>
   </main>
   
   <footer>
