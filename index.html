@@ -15,7 +15,7 @@
     }
     header {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       background: linear-gradient(135deg, #ff6f61, #d43f8d);
       color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -23,7 +23,7 @@
       overflow: hidden;
     }
     header img {
-      max-width: 200px;
+      max-width: 180px;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
@@ -46,13 +46,15 @@
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
+      background-color: #fdfdfd;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     section {
-      background: white;
-      padding: 30px;
-      margin-bottom: 20px;
+      padding: 40px 20px;
+      margin: 20px 0;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: #fff;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     section:hover {
@@ -61,17 +63,18 @@
     }
     h1, h2 {
       color: #ff6f61;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       font-weight: 600;
       opacity: 0;
       transform: translateX(-100%);
       animation: slide-in 1s forwards;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
     }
     h2 {
-      font-size: 2em;
+      font-size: 2.2em;
     }
     ul {
       list-style: none;
@@ -82,7 +85,7 @@
     ul li {
       background: #ff6f61;
       color: white;
-      padding: 10px;
+      padding: 10px 15px;
       margin-bottom: 10px;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -90,7 +93,7 @@
     }
     ul li:hover {
       background: #d43f8d;
-      transform: scale(1.02);
+      transform: scale(1.05);
     }
     footer {
       text-align: center;
@@ -105,21 +108,36 @@
     }
     p {
       line-height: 1.8;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      text-align: justify;
     }
     .button {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 25px;
       color: white;
-      background: #ff6f61;
+      background: linear-gradient(135deg, #ff6f61, #d43f8d);
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: background 0.3s, transform 0.3s;
     }
     .button:hover {
-      background: #d43f8d;
+      background: linear-gradient(135deg, #d43f8d, #ff6f61);
       transform: scale(1.05);
+    }
+    .icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .icons img {
+      max-width: 100px;
+      transition: transform 0.3s;
+    }
+    .icons img:hover {
+      transform: scale(1.2);
     }
 
     @keyframes float {
@@ -180,6 +198,11 @@
         <li>Receive reminders for upcoming sessions with tutors.</li>
         <li>Manage bookings and view history easily.</li>
       </ul>
+      <div class="icons">
+        <img src="img/icon1.png" alt="Icon 1">
+        <img src="img/icon2.png" alt="Icon 2">
+        <img src="img/icon3.png" alt="Icon 3">
+      </div>
     </section>
 
     <section id="tutors">
@@ -204,10 +227,10 @@
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    particlesJS("particles-js", {
+    particlesJS('particles-js', {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 60,
           "density": {
             "enable": true,
             "value_area": 800
@@ -224,7 +247,7 @@
           },
           "polygon": {
             "nb_sides": 5
-          }
+          },
         },
         "opacity": {
           "value": 0.5,
@@ -273,7 +296,7 @@
         "events": {
           "onhover": {
             "enable": true,
-            "mode": "grab"
+            "mode": "repulse"
           },
           "onclick": {
             "enable": true,
