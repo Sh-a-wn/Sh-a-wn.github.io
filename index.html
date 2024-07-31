@@ -6,51 +6,53 @@
   <title>Course Correct</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle, #ff007f, #ff6f00);
-      color: #fff;
+      background: linear-gradient(120deg, #f6d365, #fda085);
+      color: #333;
       overflow-x: hidden;
     }
 
     header {
       text-align: center;
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.4);
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.2);
       color: #fff;
       position: relative;
       z-index: 2;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(5px);
     }
 
     header img {
-      max-width: 180px;
+      max-width: 150px;
       border-radius: 50%;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     header img:hover {
-      transform: scale(1.2);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+      transform: scale(1.1);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
     }
 
     main {
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
 
     section {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 40px;
-      margin-bottom: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -58,52 +60,52 @@
 
     section:hover {
       transform: translateY(-10px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
     }
 
     section::before {
       content: '';
       position: absolute;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
       border-radius: 50%;
       z-index: 0;
       transition: transform 0.3s;
     }
 
     section:hover::before {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     h1, h2 {
-      color: #ff6f00;
-      margin: 0 0 15px;
+      color: #fda085;
+      margin: 0 0 20px;
       font-weight: 600;
       position: relative;
       z-index: 1;
     }
 
     h1 {
-      font-size: 4em;
-      animation: slideIn 1s ease-out;
+      font-size: 3.5em;
+      animation: fadeIn 1s ease-out;
     }
 
     h2 {
-      font-size: 2.8em;
-      animation: slideIn 1.2s ease-out;
+      font-size: 2.5em;
+      animation: fadeIn 1.2s ease-out;
     }
 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     p {
       line-height: 1.6;
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 0;
       z-index: 1;
     }
@@ -112,7 +114,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
 
     ul li {
@@ -124,8 +126,8 @@
       transition: background 0.3s, transform 0.3s;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #ff007f, #ff6f00);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     ul li::before {
@@ -135,7 +137,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s;
@@ -148,14 +150,14 @@
     }
 
     ul li:hover {
-      background: linear-gradient(135deg, #ff6f00, #ff007f);
+      background: linear-gradient(135deg, #fda085, #f6d365);
       transform: scale(1.05);
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.4);
       color: #fff;
       font-size: 1em;
       position: fixed;
@@ -180,48 +182,9 @@
       transform: scale(1.05);
     }
 
-    .particle-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.8);
-      animation: float 10s infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(-20px); opacity: 0.7; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Dynamic particle effect */
-    .particle-bg .particle:nth-child(1) { width: 8px; height: 8px; top: 10%; left: 20%; animation-duration: 12s; }
-    .particle-bg .particle:nth-child(2) { width: 12px; height: 12px; top: 40%; left: 50%; animation-duration: 10s; }
-    .particle-bg .particle:nth-child(3) { width: 6px; height: 6px; top: 70%; left: 80%; animation-duration: 8s; }
-    .particle-bg .particle:nth-child(4) { width: 10px; height: 10px; top: 30%; left: 60%; animation-duration: 14s; }
-    .particle-bg .particle:nth-child(5) { width: 7px; height: 7px; top: 50%; left: 40%; animation-duration: 11s; }
   </style>
 </head>
 <body>
-  <div class="particle-bg">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
-
   <header>
     <img src="img/campus_connect_logo.png" alt="Course Correct logo">
   </header>
@@ -233,30 +196,32 @@
       <a href="#features" class="button">Learn More</a>
     </section>
 
-    <section id="features">
-      <h2>Features</h2>
-      <ul>
-        <li>Search for tutors based on availability and subject expertise.</li>
-        <li>Book sessions directly through the app with a user-friendly interface.</li>
-        <li>Receive reminders for upcoming sessions with tutors.</li>
-        <li>Manage bookings and view history easily.</li>
-      </ul>
-    </section>
+    <div class="grid-container">
+      <section id="features">
+        <h2>Features</h2>
+        <ul>
+          <li>Search for tutors based on availability and subject expertise.</li>
+          <li>Book sessions directly through the app with a user-friendly interface.</li>
+          <li>Receive reminders for upcoming sessions with tutors.</li>
+          <li>Manage bookings and view history easily.</li>
+        </ul>
+      </section>
 
-    <section id="tutors">
-      <h2>Tutors</h2>
-      <p>The tutors on the app range from top-performing students in higher classes to young but experienced individuals eager to assist those who need help.</p>
-    </section>
+      <section id="tutors">
+        <h2>Tutors</h2>
+        <p>The tutors on the app range from top-performing students in higher classes to young but experienced individuals eager to assist those who need help.</p>
+      </section>
 
-    <section id="students">
-      <h2>Students</h2>
-      <p>Anyone can be a student on the app. Just log in as a student and select a topic from our vast options where you need assistance, and we'll get you the best tutor available to guide you.</p>
-    </section>
+      <section id="students">
+        <h2>Students</h2>
+        <p>Anyone can be a student on the app. Just log in as a student and select a topic from our vast options where you need assistance, and we'll get you the best tutor available to guide you.</p>
+      </section>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We are dedicated to making education more accessible by bridging the gap between students and experienced tutors. Our app is designed to simplify the process of finding and booking tutoring sessions.</p>
-    </section>
+      <section id="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to making education more accessible by bridging the gap between students and experienced tutors. Our app is designed to simplify the process of finding and booking tutoring sessions.</p>
+      </section>
+    </div>
   </main>
   
   <footer>
